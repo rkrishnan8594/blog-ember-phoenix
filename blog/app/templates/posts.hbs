@@ -1,12 +1,7 @@
 <ul>
   {{#each model as |post|}}
-    <li>
-      <h3>{{post.title}}</h3>
-      <p>by {{post.author}}</p>
-      <p>{{post.summary}}</p>
-      <p>{{post.comments.length}} Comments</p>
-    </li>
+    {{post-item post=post}}
   {{/each}}
 </ul>
 
-{{outlet}}
+{{#link-to "new"}}New Post{{/link-to}}
