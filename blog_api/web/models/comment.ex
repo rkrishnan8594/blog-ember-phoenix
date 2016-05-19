@@ -9,7 +9,7 @@ defmodule BlogApi.Comment do
     timestamps
   end
 
-  @required_fields ~w(author content)
+  @required_fields ~w(author content post_id)
   @optional_fields ~w()
 
   @doc """

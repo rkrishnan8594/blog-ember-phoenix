@@ -6,7 +6,7 @@ defmodule BlogApi.PostController do
   plug :scrub_params, "post" when action in [:create, :update]
 
   def index(conn, _params) do
-    posts = Repo.all(Post)
+    posts = Post |> Repo.all |> Repo.preload([:comments])
     render(conn, "index.json", posts: posts)
   end
 
@@ -27,7 +27,7 @@ defmodule BlogApi.PostController do
   end
 
   def show(conn, %{"id" => id}) do
-    post = Repo.get!(Post, id)
+    post = Post |> Repo.get!(id) |> Repo.preload([:comments])
     render(conn, "show.json", post: post)
   end
 
