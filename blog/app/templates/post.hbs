@@ -3,5 +3,15 @@
 <br>
 <p>{{model.summary}}</p>
 
+<h3>Comments ({{model.comments.length}})</h3>
+<ul class="comments">
+  {{#each model.comments as |comment|}}
+    {{comment-item comment=comment}}
+  {{/each}}
+</ul>
+
+{{outlet}}
+
+<p>{{#link-to "post.comments.new"}}New Comment{{/link-to}}</p>
 <p>{{#link-to "post.edit"}}Edit Post{{/link-to}}</p>
 <p>{{#link-to "posts"}}Return to Index{{/link-to}}</p>

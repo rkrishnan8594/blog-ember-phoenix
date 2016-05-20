@@ -4,7 +4,7 @@ defmodule BlogApi.CommentController do
   alias BlogApi.Comment
   alias BlogApi.Post
 
-  plug :scrub_params, "comment" when action in [:create, :update]
+  plug :scrub_params, "data" when action in [:create, :update]
   plug :assign_post
 
   def index(conn, _params) do
@@ -12,7 +12,7 @@ defmodule BlogApi.CommentController do
     render(conn, "index.json", comments: comments)
   end
 
-  def create(conn, %{"comment" => comment_params}) do
+  def create(conn, %{"data" => %{"attributes" => comment_params}}) do
     changeset = conn.assigns[:post]
      |> build_assoc(:comments)
      |> Comment.changeset(comment_params)
