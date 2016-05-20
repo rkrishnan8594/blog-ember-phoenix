@@ -10,8 +10,8 @@ Router.map(function() {
     this.route('edit');
   });
   this.route('posts', { path: '/' });
+  this.route('new', {path: '/posts/new'});
   this.route('posts');
-  this.route('new', { path: '/posts/new' });
 });
 
 export default Router;

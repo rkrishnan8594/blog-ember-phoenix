@@ -10,7 +10,7 @@ defmodule BlogApi.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json-api"]
+    plug :accepts, ["json", "json-api"]
     plug JaSerializer.ContentTypeNegotiation
     plug JaSerializer.Deserializer
   end

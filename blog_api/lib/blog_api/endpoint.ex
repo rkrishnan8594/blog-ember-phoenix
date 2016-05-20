@@ -35,6 +35,6 @@ defmodule BlogApi.Endpoint do
     key: "_blog_api_key",
     signing_salt: "eD0nybqm"
 
-  plug Corsica, [origins: ["http://localhost:4200"]]
+  plug Corsica, [origins: ["http://localhost:4200"], allow_headers: ["accept", "content-type"], log: :debug]
   plug BlogApi.Router
 end

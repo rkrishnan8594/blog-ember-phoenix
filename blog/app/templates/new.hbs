@@ -1,0 +1,11 @@
+<h1>New Post</h1>
+
+Title:<br>
+{{input type="text" value=model.title class="title" size="50"}}<br><br>
+Author:<br>
+{{input type="text" value=model.author class="author" size="35"}}<br><br>
+Summary:<br>
+{{textarea value=model.summary class="summary" cols="80" rows="3"}} <br><br>
+
+<button {{action "save"}}>Create Post</button>
+<p>{{#link-to "posts"}}Return to Index{{/link-to}}</p>

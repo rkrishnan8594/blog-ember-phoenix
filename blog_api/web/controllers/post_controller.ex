@@ -3,15 +3,15 @@ defmodule BlogApi.PostController do
 
   alias BlogApi.Post
 
-  plug :scrub_params, "post" when action in [:create, :update]
+  plug :scrub_params, "data" when action in [:create, :update]
 
   def index(conn, _params) do
     posts = Post |> Repo.all |> Repo.preload([:comments])
     render(conn, "index.json", posts: posts)
   end
 
-  def create(conn, %{"post" => post_params}) do
-    changeset = Post.changeset(%Post{}, post_params)
+  def create(conn, %{"data" => %{"attributes" => post_params}}) do
+    changeset = Post.changeset(%Post{comments: []}, post_params)
 
     case Repo.insert(changeset) do
       {:ok, post} ->

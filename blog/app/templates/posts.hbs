@@ -1,7 +1,13 @@
-<ul>
+<h1 class="header">Blog</h1>
+
+{{outlet}}
+
+<ul class="posts">
   {{#each model as |post|}}
-    {{post-item post=post}}
+    {{#link-to "post" post}}
+      {{post-item post=post}}
+    {{/link-to}}
   {{/each}}
 </ul>
 
-{{#link-to "new"}}New Post{{/link-to}}
+<div>{{#link-to "new"}}New Post{{/link-to}}</div>

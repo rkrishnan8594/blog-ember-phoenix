@@ -1,3 +1,7 @@
-{{model.title}}
-{{model.author}}
-{{model.summary}}
+<h1>{{model.title}}</h1>
+<i>by {{model.author}}</i>
+<br>
+<p>{{model.summary}}</p>
+
+<p>{{#link-to "post.edit"}}Edit Post{{/link-to}}</p>
+<p>{{#link-to "posts"}}Return to Index{{/link-to}}</p>
