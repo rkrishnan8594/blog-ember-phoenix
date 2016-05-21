@@ -5,6 +5,7 @@ defmodule BlogApi.Post do
     field :title, :string
     field :author, :string
     field :summary, :string
+    field :body, :string
 
     has_many :comments, BlogApi.Comment
 

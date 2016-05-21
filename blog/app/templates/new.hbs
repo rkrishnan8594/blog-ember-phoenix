@@ -6,6 +6,8 @@ Author:<br>
 {{input type="text" value=model.author class="author" size="35"}}<br><br>
 Summary:<br>
 {{textarea value=model.summary class="summary" cols="80" rows="3"}} <br><br>
+Body:<br>
+{{textarea value=model.body class="body" cols="80" rows="10"}} <br><br>
 
 <button {{action "save"}}>Create Post</button>
 <button {{action "cancel"}}>Cancel</button>
