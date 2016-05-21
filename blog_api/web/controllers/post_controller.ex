@@ -31,8 +31,8 @@ defmodule BlogApi.PostController do
     render(conn, "show.json", post: post)
   end
 
-  def update(conn, %{"id" => id, "post" => post_params}) do
-    post = Repo.get!(Post, id)
+  def update(conn, %{"id" => id, "data" => %{"attributes" => post_params}}) do
+    post = Post |> Repo.get!(id) |> Repo.preload([:comments])
     changeset = Post.changeset(post, post_params)
 
     case Repo.update(changeset) do

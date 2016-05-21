@@ -7,13 +7,13 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('post', { path: '/posts/:post_id' }, function() {
-    this.route('edit');
     this.route('comments', function() {
       this.route('new');
     });
   });
-  this.route('posts', { path: '/' });
+  this.route('edit', {path: '/posts/:post_id/edit'});
   this.route('new', {path: '/posts/new'});
+  this.route('posts', { path: '/' });
   this.route('posts');
 });
 
